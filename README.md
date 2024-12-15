@@ -21,7 +21,7 @@ This project demonstrates a real-time blob tracking effect created in TouchDesig
 📷 Output Preview
 
 ![Output Preview](https://github.com/user-attachments/assets/0bbaa31f-4226-4c0a-b2a6-83d667adc5f0)
-![Output Preview](./Assets/blobtrack2.mp4)
+
 
 
 🌟 Contributions
