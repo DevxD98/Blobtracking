@@ -20,6 +20,7 @@
 1. Download the `.toe` file from this repository
 2. Open with TouchDesigner (version 2022.32600 or later)
 3. delete this file in the project -<img width="950" alt="Screenshot 2024-12-15 at 1 15 53 PM" src="https://github.com/user-attachments/assets/e5c8e4a8-7f03-48aa-acf8-15250367d7c9" width="60" height="400"/>
+4. Replace it with your own video file
 
 ## 📷 Output Preview
 
