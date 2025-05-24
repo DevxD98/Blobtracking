@@ -24,7 +24,7 @@
 
 ## 📷 Output Preview
 
-![Output Preview](https://github.com/user-attachments/assets/0bbaa31f-4226-4c0a-b2a6-83d667adc5f0)
+[![Output Preview](https://github.com/user-attachments/assets/0bbaa31f-4226-4c0a-b2a6-83d667adc5f0)](https://github.com/user-attachments/assets/499e8e20-c939-4272-b717-b29ae6f7b131)
 
 
 
