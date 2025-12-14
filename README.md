@@ -124,12 +124,6 @@ cd Blobtracking
 
 ### 🌟 **See It In Action**
 
-[![🎥 Watch Demo](https://img.shields.io/badge/▶️_Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://github.com/user-attachments/assets/499e8e20-c939-4272-b717-b29ae6f7b131)
-
-<br/>
-
-**Click the preview below to see the full demo:**
-
 [![Output Preview](https://github.com/user-attachments/assets/0bbaa31f-4226-4c0a-b2a6-83d667adc5f0)](https://github.com/user-attachments/assets/499e8e20-c939-4272-b717-b29ae6f7b131)
 
 _🎯 Real-time blob tracking with dynamic visual feedback_
