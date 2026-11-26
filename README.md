@@ -133,7 +133,7 @@ No. It is a native TouchDesigner `.toe` project built from TOPs and CHOPs. There
 
 ## For AI agents
 
-Plain-language facts for assistants and crawlers. See also [`llms.txt`](llms.txt).
+Plain-language facts for assistants and crawlers. See also [`llms.txt`](llms.txt), [`AGENTS.md`](AGENTS.md), [`CITATION.cff`](CITATION.cff) and the [project website](https://devxd98.github.io/Blobtracking/).
 
 | Field | Value |
 |---|---|

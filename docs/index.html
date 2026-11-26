@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blob Tracking in TouchDesigner – real-time tracking effect (free .toe project)</title>
+<meta name="description" content="A ready-to-run TouchDesigner project for real-time blob tracking: square markers, pixel coordinates and connecting lines drawn over your own video. MIT licensed.">
+<link rel="canonical" href="https://devxd98.github.io/Blobtracking/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blob Tracking in TouchDesigner">
+<meta property="og:description" content="Real-time blob tracking: square markers, pixel coordinates and connecting lines over your own video. Free .toe project.">
+<meta property="og:url" content="https://devxd98.github.io/Blobtracking/">
+<meta property="og:image" content="https://raw.githubusercontent.com/DevxD98/Blobtracking/main/Assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="text/plain" href="https://raw.githubusercontent.com/DevxD98/Blobtracking/main/llms.txt" title="llms.txt">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "Blob Tracking in TouchDesigner",
+  "description": "A ready-to-run TouchDesigner project that detects and tracks blobs in video in real time and draws square markers with pixel-coordinate labels, connected by thin lines, over the source footage.",
+  "codeRepository": "https://github.com/DevxD98/Blobtracking",
+  "url": "https://devxd98.github.io/Blobtracking/",
+  "license": "https://opensource.org/licenses/MIT",
+  "programmingLanguage": "TouchDesigner",
+  "runtimePlatform": "TouchDesigner 2022.32600 or newer",
+  "keywords": "touchdesigner, blob tracking, computer vision, object tracking, generative art, creative coding, interactive art, real-time, motion graphics",
+  "author": { "@type": "Person", "name": "DevxD98", "url": "https://github.com/DevxD98" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is blob tracking?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Blob tracking is a computer-vision technique that finds connected regions of similar pixels (blobs) in an image and follows them from frame to frame, giving a position for each blob over time." } },
+    { "@type": "Question", "name": "Do I need a webcam or special hardware?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The project works on a normal video file. A webcam or other video source is optional." } },
+    { "@type": "Question", "name": "Which TouchDesigner version do I need?",
+      "acceptedAnswer": { "@type": "Answer", "text": "TouchDesigner 2022.32600 or newer, as tested by the author." } },
+    { "@type": "Question", "name": "Is this a Python or OpenCV project?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It is a native TouchDesigner .toe project built from TOPs and CHOPs. There is no separate code to install or run." } }
+  ]
+}
+</script>
+<style>
+  :root { --bg:#0a0c10; --fg:#eef1f5; --muted:#a3abb8; --line:#1d222b; --green:#3dff8f; --coral:#ff6b57; --amber:#ffb347; }
+  :root[data-theme="light"] { --bg:#f6f7f9; --fg:#12151b; --muted:#566070; --line:#dfe3ea; --green:#0a8f4a; --coral:#d9442f; --amber:#b86e00; }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --bg:#f6f7f9; --fg:#12151b; --muted:#566070; --line:#dfe3ea; --green:#0a8f4a; --coral:#d9442f; --amber:#b86e00; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif; }
+  main { max-width: 820px; margin: 0 auto; padding: 0 16px 64px; }
+  .hero img { display:block; width:100%; height:auto; border-radius:0 0 14px 14px; }
+  h1 { font-size: clamp(2rem, 6vw, 3rem); letter-spacing:-.02em; line-height:1.1; margin: 32px 0 12px; }
+  h2 { font-size: 1.4rem; margin: 44px 0 10px; letter-spacing:-.01em; }
+  p, li { color: var(--fg); }
+  .muted { color: var(--muted); }
+  a { color: var(--green); text-underline-offset: 3px; }
+  code { font: .9em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background: color-mix(in srgb, var(--fg) 8%, transparent); padding: .1em .35em; border-radius: 4px; }
+  pre { background: color-mix(in srgb, var(--fg) 6%, transparent); border:1px solid var(--line); padding:14px 16px; border-radius:10px; overflow-x:auto; }
+  pre code { background:none; padding:0; }
+  .cta { display:flex; flex-wrap:wrap; gap:10px; margin: 20px 0 8px; }
+  .btn { display:inline-block; padding:10px 16px; border-radius:8px; border:1px solid var(--line); text-decoration:none; color:var(--fg); font-weight:600; }
+  .btn.primary { background: var(--green); color:#04130b; border-color: var(--green); }
+  .btn:focus-visible, a:focus-visible, summary:focus-visible { outline:2px solid var(--green); outline-offset:3px; }
+  figure { margin: 24px 0; text-align:center; }
+  figure img { max-width:100%; height:auto; border-radius:10px; border:1px solid var(--line); }
+  figcaption { color:var(--muted); font-size:.9rem; margin-top:8px; }
+  details { border-top:1px solid var(--line); padding: 12px 0; }
+  details:last-of-type { border-bottom:1px solid var(--line); }
+  summary { cursor:pointer; font-weight:600; }
+  table { width:100%; border-collapse:collapse; font-size:.95rem; }
+  td, th { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { width: 32%; color: var(--muted); font-weight:600; }
+  footer { margin-top:56px; color:var(--muted); font-size:.9rem; }
+  @media (max-width:520px) { body { font-size:16px; } th { width:38%; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <img src="https://raw.githubusercontent.com/DevxD98/Blobtracking/main/Assets/banner.svg" alt="Blob Tracking in TouchDesigner: white square markers with pixel coordinates connected by thin green lines" width="1280" height="400">
+</header>
+<main>
+  <h1>Blob Tracking in TouchDesigner</h1>
+  <p>A ready-to-run <strong>TouchDesigner project</strong> that detects and tracks blobs in video in real time. Each tracked point gets a square marker and its pixel coordinates, and the points are connected by thin lines. It is the "tracking HUD" look from music videos, reels and installations.</p>
+  <p class="muted">Open one <code>.toe</code> file, swap in your own footage, and the effect runs. No code, no plugins, nothing beyond TouchDesigner.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/DevxD98/Blobtracking/releases/latest">Download the .toe</a>
+    <a class="btn" href="https://github.com/DevxD98/Blobtracking">View on GitHub</a>
+    <a class="btn" href="https://github.com/user-attachments/assets/499e8e20-c939-4272-b717-b29ae6f7b131">Watch the demo</a>
+  </div>
+
+  <figure>
+    <img src="https://raw.githubusercontent.com/DevxD98/Blobtracking/main/Assets/preview.gif" alt="Two clips of flowers filmed handheld, with blob tracking markers, coordinates and connecting lines drawn over them" width="520" height="462" loading="lazy">
+    <figcaption>Handheld flower footage with the tracking overlay.</figcaption>
+  </figure>
+
+  <h2>Quick start</h2>
+  <ol>
+    <li>Install <a href="https://derivative.ca/download">TouchDesigner</a> 2022.32600 or newer (the free non-commercial edition should work).</li>
+    <li>Get the project: <code>git clone https://github.com/DevxD98/Blobtracking.git</code>, or download the <code>.toe</code> from the latest release.</li>
+    <li>Open <code>blob-tracking.3.toe</code> in TouchDesigner.</li>
+    <li>Delete the sample video node and drop in your own footage. The <a href="https://github.com/DevxD98/Blobtracking#quick-start">README</a> shows which node.</li>
+  </ol>
+
+  <h2>How it works</h2>
+  <p>Video comes in, blobs are detected, their positions are tracked frame by frame, markers, labels and lines are drawn, and the result is composited over the source video. The project is a TouchDesigner node network: TOPs (texture operators) handle the image processing and CHOPs (channel operators) carry the position data.</p>
+
+  <h2>At a glance</h2>
+  <table>
+    <tr><th>Entry point</th><td><code>blob-tracking.3.toe</code></td></tr>
+    <tr><th>Requires</th><td>TouchDesigner 2022.32600 or newer. No other dependencies</td></tr>
+    <tr><th>Inputs</th><td>A video file (replace the sample clip)</td></tr>
+    <tr><th>Outputs</th><td>Real-time render with tracking graphics over the source</td></tr>
+    <tr><th>License</th><td>MIT</td></tr>
+    <tr><th>Machine-readable</th><td><a href="https://raw.githubusercontent.com/DevxD98/Blobtracking/main/llms.txt">llms.txt</a>, <a href="https://github.com/DevxD98/Blobtracking/blob/main/CITATION.cff">CITATION.cff</a>, <a href="https://github.com/DevxD98/Blobtracking/blob/main/AGENTS.md">AGENTS.md</a></td></tr>
+  </table>
+
+  <h2>FAQ</h2>
+  <details><summary>What is blob tracking?</summary><p>Blob tracking is a computer-vision technique that finds connected regions of similar pixels (blobs) in an image and follows them from frame to frame, giving a position for each blob over time. You can draw those positions on screen or use them to drive other visuals.</p></details>
+  <details><summary>Do I need a webcam or special hardware?</summary><p>No. The project works on a normal video file. A webcam or other video source is optional.</p></details>
+  <details><summary>Do I need to buy TouchDesigner?</summary><p>Probably not. TouchDesigner has a free non-commercial edition, which should be enough to run this project. Check Derivative's licence terms for commercial use.</p></details>
+  <details><summary>Which TouchDesigner version do I need?</summary><p>2022.32600 or newer, as tested by the author. Newer builds should open it.</p></details>
+  <details><summary>Is this a Python or OpenCV project?</summary><p>No. It is a native TouchDesigner <code>.toe</code> project built from TOPs and CHOPs. There is no separate code to install or run.</p></details>
+
+  <footer>MIT licensed · Made by <a href="https://github.com/DevxD98">DevxD98</a></footer>
+</main>
+</body>
+</html>

@@ -3,6 +3,7 @@
 > A ready-to-run TouchDesigner project that detects and tracks blobs in video in real time and draws the result as square markers with pixel-coordinate labels, connected by thin lines, composited over the source footage. MIT licensed.
 
 Repository: https://github.com/DevxD98/Blobtracking
+Website: https://devxd98.github.io/Blobtracking/
 Entry point: `blob-tracking.3.toe` (open in TouchDesigner 2022.32600 or newer)
 Dependencies: none beyond TouchDesigner (free non-commercial edition should work). No code to compile or install.
 Inputs: a video file (replace the sample clip in the project) or a live camera source.
@@ -11,6 +12,9 @@ Outputs: a real-time render of the footage with tracking graphics on top.
 ## Docs
 
 - [README](https://github.com/DevxD98/Blobtracking/blob/main/README.md): preview, quick start, how it works, customisation ideas, FAQ
+- [AGENTS.md](https://github.com/DevxD98/Blobtracking/blob/main/AGENTS.md): rules for AI agents (what not to assume about the binary .toe)
+- [CITATION.cff](https://github.com/DevxD98/Blobtracking/blob/main/CITATION.cff): how to cite
+- [Website](https://devxd98.github.io/Blobtracking/): same content with structured data (JSON-LD)
 - [License](https://github.com/DevxD98/Blobtracking/blob/main/LICENSE): MIT
 
 ## Assets

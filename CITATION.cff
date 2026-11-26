@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this project in your work, please cite it as below."
+title: "Blob Tracking in TouchDesigner"
+type: software
+abstract: >-
+  A ready-to-run TouchDesigner project that detects and tracks blobs in video
+  in real time and draws the result as square markers with pixel-coordinate
+  labels, connected by thin lines, composited over the source footage.
+authors:
+  - alias: "DevxD98"
+repository-code: "https://github.com/DevxD98/Blobtracking"
+url: "https://devxd98.github.io/Blobtracking/"
+license: MIT
+version: "1.0.0"
+date-released: "2026-11-26"
+keywords:
+  - touchdesigner
+  - blob tracking
+  - computer vision
+  - object tracking
+  - generative art
+  - creative coding
+  - interactive art
+  - real-time
+  - motion graphics
